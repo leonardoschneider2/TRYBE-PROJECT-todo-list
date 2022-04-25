@@ -1,1 +1,83 @@
- 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+main {
+  margin: 50px auto;
+  width: 800px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#btn-section {
+  display: flex;
+  width: 100%-2px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0;
+  border: 1px gray solid;
+  background-color: rgb(239, 239, 239);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#btn-section button {
+  width: 16.6%;
+  padding: 20px 0;
+  border: 0px;
+  background-color: rgb(239, 239, 239);
+}
+
+#btn-section button:hover {
+  background-color: rgb(200, 200, 200);
+  transition: 0.4s background-color;
+}
+
+#input-section {
+  padding: 20px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+#input-section button, #input-section input {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+#input-section input {
+  width: 350px;
+}
+
+#ordenad-list {
+  padding: 30px;
+  height: 300px;
+  overflow-y: scroll;
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+.item {
+  padding: 5px;
+  left: 20px;
+  font-size: 20px;
+}
+
+.item:hover {
+  background-color: gray;
+  transition: 0.2s background-color;
+}
+
+.selected-item {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}

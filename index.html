@@ -9,24 +9,27 @@
 </head>
 <body>
   <main>
-    <h1> Project Todo List</h1>
+    <header>
+      <h1 id="title">Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
 
-    <div id="">
-      <input id="" type="text">
-      <button id="">Adicionar</button>
-    </div>
+    <section id="input-section">
+      <input id="texto-tarefa" type="text">
+      <button id="criar-tarefa">Adicionar</button>
+    </section>
 
-    <div id="">
-      <button id="">X</button>
-      <button id="">SOBE</button>
-      <button id="">DESCE</button>
-      <button id="">LIMPAR COMPLETOS</button>
-      <button id="">LIMPAR LISTA</button>
-      <button id="">SALVAR LISTA</button>
-    </div>
+    <ol id="ordenad-list"></ol>
 
-    <ul id=""></ul>
-    
+    <section id="btn-section">
+      <button id="remover-selecionado">X</button>
+      <button id="mover-cima">SOBE</button>
+      <button id="mover-baixo">DESCE</button>
+      <button id="remover-finalizados">LIMPAR COMPLETOS</button>
+      <button id="apaga-tudo">LIMPAR LISTA</button>
+      <button id="salvar-tarefas">SALVAR LISTA</button>
+    </section>
+
   </main>
   <script src="script.js"></script>
 </body>
