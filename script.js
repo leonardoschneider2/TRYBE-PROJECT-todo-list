@@ -37,13 +37,9 @@ function cleaningList() {
 } // COMPLETO!
 
 function clearCheckedItems() {
-  for (let i = list.childElementCount - 1; i >= 0; i -= 1) {
-    const classes = list.children[i].classList;
-    for(let j of classes) {
-      if (j === 'completed') {
-        list.removeChild(list.children[i]);
-      }
-    }
+  const concluidos = document.querySelectorAll('.concluido');
+  for (let i = 0; i < concluidos.length; i += 1) {
+    concluidos[i].remove();
   }
 } // COMPLETO!
 
@@ -95,9 +91,7 @@ function desce() {
 } // COMPLETO!
 
 function selectedRemove() {
-  let selected = document.querySelector('.selected-item');
   const pai = selected.parentNode;
-
   for (let i = 0; i < pai.childElementCount; i += 1) {
     if (pai.children[i] === selected) {
       pai.removeChild(pai.children[i]);
