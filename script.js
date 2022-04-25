@@ -1,9 +1,11 @@
 // global vars
-const list = document.querySelector('#ordenad-list');
+const list = document.querySelector('#lista-tarefas');
+const selected = document.querySelector('.selected-item');
 
 // functions
 function addListItem() {
-  texto = document.querySelector('#texto-tarefa').value;
+  const texto = document.querySelector('#texto-tarefa').value;
+  document.querySelector('#texto-tarefa').value = '';
 
   const item = document.createElement('li');
   item.className = 'item';
@@ -35,7 +37,7 @@ function cleaningList() {
 } // COMPLETO!
 
 function clearCheckedItems() {
-  for (let i = 0; i < list.childElementCount; i += 1) {
+  for (let i = list.childElementCount - 1; i >= 0; i -= 1) {
     const classes = list.children[i].classList;
     for(let j of classes) {
       if (j === 'completed') {
@@ -48,8 +50,8 @@ function clearCheckedItems() {
 function saveList() {
   localStorage.setItem('texto', JSON.stringify([]));
   localStorage.setItem('classes', JSON.stringify([]));
-  let texto = JSON.parse(localStorage.getItem('texto'));
-  let classes = JSON.parse(localStorage.getItem('classes'));
+  const texto = JSON.parse(localStorage.getItem('texto'));
+  const classes = JSON.parse(localStorage.getItem('classes'));
   for (let i = 0; i < list.childElementCount; i += 1) {
     texto.push(list.children[i].textContent);
     classes.push(list.children[i].className);
@@ -59,36 +61,37 @@ function saveList() {
 } // COMPLETO!
 
 function sobe() {
-  let selected = document.querySelector('.selected-item');
-  let anterior = selected.previousElementSibling;
+  if (selected !== null && selected !== list.firstChild) {
+    const anterior = selected.previousElementSibling;
 
-  const aClass = anterior.className;
-  const aContent = anterior.textContent;
-  const sClass = selected.className;
-  const sContent = selected.textContent;
+    const aClass = anterior.className;
+    const aContent = anterior.textContent;
+    const sClass = selected.className;
+    const sContent = selected.textContent;
 
-  selected.className = aClass;
-  selected.textContent = aContent;
+    selected.className = aClass;
+    selected.textContent = aContent;
 
-  anterior.className = sClass;
-  anterior.textContent = sContent;
-  
+    anterior.className = sClass;
+    anterior.textContent = sContent;
+  }
 } // COMPLETO!
 
 function desce() {
-  let selected = document.querySelector('.selected-item');
-  let proximo = selected.nextElementSibling;
+  if (selected !== null && selected !== list.lastChild) {
+    const proximo = selected.nextElementSibling;
 
-  const pClass = proximo.className;
-  const pContent = proximo.textContent;
-  const sClass = selected.className;
-  const sContent = selected.textContent;
+    const pClass = proximo.className;
+    const pContent = proximo.textContent;
+    const sClass = selected.className;
+    const sContent = selected.textContent;
 
-  selected.className = pClass;
-  selected.textContent = pContent;
+    selected.className = pClass;
+    selected.textContent = pContent;
 
-  proximo.className = sClass;
-  proximo.textContent = sContent;
+    proximo.className = sClass;
+    proximo.textContent = sContent;
+  }
 } // COMPLETO!
 
 function selectedRemove() {
@@ -119,7 +122,7 @@ function getLocalStorage() {
 } // COMPLETO!
 
 // add event listeners
-window.onload = function open() {
+
 getLocalStorage();
 
 document.querySelector('#criar-tarefa').addEventListener('click', addListItem);
@@ -139,4 +142,3 @@ document.querySelector('#mover-cima').addEventListener('click', sobe);
 document.querySelector('#mover-baixo').addEventListener('click', desce);
 
 document.querySelector('#remover-selecionado').addEventListener('click', selectedRemove);
-}
