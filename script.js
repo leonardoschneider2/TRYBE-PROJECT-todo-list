@@ -1,6 +1,5 @@
 // global vars
 const list = document.querySelector('#lista-tarefas');
-const selected = document.querySelector('.selected-item');
 
 // functions
 function addListItem() {
@@ -37,7 +36,7 @@ function cleaningList() {
 } // COMPLETO!
 
 function clearCheckedItems() {
-  const concluidos = document.querySelectorAll('.concluido');
+  const concluidos = document.querySelectorAll('.completed');
   for (let i = 0; i < concluidos.length; i += 1) {
     concluidos[i].remove();
   }
@@ -57,6 +56,7 @@ function saveList() {
 } // COMPLETO!
 
 function sobe() {
+  const selected = document.querySelector('.selected-item');
   if (selected !== null && selected !== list.firstChild) {
     const anterior = selected.previousElementSibling;
 
@@ -74,6 +74,7 @@ function sobe() {
 } // COMPLETO!
 
 function desce() {
+  const selected = document.querySelector('.selected-item');
   if (selected !== null && selected !== list.lastChild) {
     const proximo = selected.nextElementSibling;
 
@@ -91,6 +92,7 @@ function desce() {
 } // COMPLETO!
 
 function selectedRemove() {
+  const selected = document.querySelector('.selected-item');
   const pai = selected.parentNode;
   for (let i = 0; i < pai.childElementCount; i += 1) {
     if (pai.children[i] === selected) {
